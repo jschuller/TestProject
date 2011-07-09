@@ -1,4 +1,6 @@
 TestProject::Application.routes.draw do
+  get "quote/index"
+  get "quote/answer"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

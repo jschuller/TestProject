@@ -1,3 +1,8 @@
+PATH
+  remote: ./twml
+  specs:
+    twml (0.0.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -73,3 +78,4 @@ PLATFORMS
 DEPENDENCIES
   rails (= 3.0.9)
   sqlite3
+  twml!

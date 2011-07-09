@@ -1,3 +1,28 @@
+# Filters added to this controller apply to all controllers in the application.
+# Likewise, all the methods added will be available for all controllers.
+
 class ApplicationController < ActionController::Base
-  protect_from_forgery
+  helper :all # include all helpers, all the time
+  # protect_from_forgery # See ActionController::RequestForgeryProtection for details
+  protect_from_forgery :only => [:create, :update, :destroy]
+
+  # Scrub sensitive parameters from your log
+  # filter_parameter_logging :password
+
+  def digits
+    params['Digits'] || ''
+  end
+
+  def twaction m
+    m.to_s
+  end
+
+  def send_back &block
+    t = TWML.new do
+      instance_eval &block
+    end
+    render :text => t.twml
+  end
+
 end
+
